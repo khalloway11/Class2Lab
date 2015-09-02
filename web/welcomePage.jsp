@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>${welcome}</h1>
+        <h1>${welcome}</h1><br>
+        <p>The time is: ${time}</p>
     </body>
 </html>

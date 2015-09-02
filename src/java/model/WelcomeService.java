@@ -12,11 +12,12 @@ import java.util.Calendar;
  * @author Keiji
  */
 public class WelcomeService {
-    private static Calendar now = Calendar.getInstance();
-    private int hour;
+    private static Calendar now;
+    private long hour;
     private String welcome;
     
     public WelcomeService(){
+        now = Calendar.getInstance();
         hour = now.HOUR_OF_DAY;
         welcome = "";
     }
@@ -29,7 +30,7 @@ public class WelcomeService {
         WelcomeService.now = now;
     }
 
-    public int getHour() {
+    public long getHour() {
         return hour;
     }
 
@@ -46,10 +47,10 @@ public class WelcomeService {
     }
     
     private void setGreeting(){
-        if((6 <= hour) && (hour < 12)){
+        if((0 <= hour) && (hour < 12)){
             //good morning
             welcome = "Good Morning, ";
-        } else if((12 <= hour) && (hour < 5)){
+        } else if((12 <= hour) && (hour < 17)){
             //good afternoon
             welcome = "Good Afternoon, ";
         } else {

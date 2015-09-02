@@ -19,7 +19,7 @@ import model.WelcomeService;
  *
  * @author Keiji
  */
-@WebServlet(name = "WelcomeController", urlPatterns = {"/WelcomeController"})
+@WebServlet(name = "WelcomeController", urlPatterns = {"/greeter"})
 public class WelcomeController extends HttpServlet {
 
     /**
@@ -38,8 +38,9 @@ public class WelcomeController extends HttpServlet {
         String name = request.getParameter("nameInput");
         ws.createFullWelcome(name);
         String welcomeString = ws.getWelcome();
-        
+        long timeNow = ws.getHour();
         request.setAttribute("welcome", welcomeString);
+        request.setAttribute("time", timeNow);
         
         RequestDispatcher view = request.getRequestDispatcher("/welcomePage.jsp");
         view.forward(request, response);
