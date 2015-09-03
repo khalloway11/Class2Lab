@@ -18,7 +18,7 @@ public class WelcomeService {
     
     public WelcomeService(){
         now = Calendar.getInstance();
-        hour = now.HOUR_OF_DAY;
+        hour = now.get(Calendar.HOUR_OF_DAY);
         welcome = "";
     }
 
